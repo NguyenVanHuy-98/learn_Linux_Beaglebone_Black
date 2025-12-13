@@ -1,0 +1,1 @@
+/home/huy/work_space/03_creat_zimage_with_device_tree/on_led.o
