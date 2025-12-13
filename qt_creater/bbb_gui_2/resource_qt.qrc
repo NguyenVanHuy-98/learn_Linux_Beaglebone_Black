@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/new/image">
+        <file>image/Taplo_GUi.jpeg</file>
+    </qresource>
+    <qresource prefix="/new/right">
+        <file>image/Re-Phai.jpg</file>
+    </qresource>
+    <qresource prefix="/left">
+        <file>image/Re-Trai.jpg</file>
+    </qresource>
+</RCC>

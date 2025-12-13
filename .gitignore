@@ -1,0 +1,27 @@
+# Build output
+build*/
+tmp*/
+out*/
+bin*/
+obj*/
+*.o
+*.a
+*.so
+*.elf
+*.bin
+*.img
+*.dtb
+*.dtbo
+
+# Logs
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Qt Creator
+qt_creater/**/build*/
+qt_creater/**/*.user
+qt_creater/**/.creator*

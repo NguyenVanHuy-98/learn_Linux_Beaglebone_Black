@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/"/>
+    <qresource prefix="/new/prefix1">
+        <file>image/Taplo_GUi.jpeg</file>
+    </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>image/Re-Phai.jpg</file>
+    </qresource>
+    <qresource prefix="/new/prefix3">
+        <file>image/Re-Trai.jpg</file>
+    </qresource>
+</RCC>
