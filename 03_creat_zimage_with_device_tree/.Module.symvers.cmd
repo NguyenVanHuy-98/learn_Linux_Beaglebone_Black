@@ -1,1 +1,0 @@
-cmd_/home/huy/work_space/03_creat_zimage_with_device_tree/Module.symvers :=  sed 's/ko$$/o/'  /home/huy/work_space/03_creat_zimage_with_device_tree/modules.order | scripts/mod/modpost       -o /home/huy/work_space/03_creat_zimage_with_device_tree/Module.symvers -e -i Module.symvers -T - 

@@ -1,1 +1,0 @@
-cmd_/home/huy/worlk/create_drive/Module.symvers :=  sed 's/ko$$/o/'  /home/huy/worlk/create_drive/modules.order | scripts/mod/modpost       -o /home/huy/worlk/create_drive/Module.symvers -e -i Module.symvers -T - 

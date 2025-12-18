@@ -1,1 +1,0 @@
-/home/huy/worlk/create_drive/hello-kernel.o
