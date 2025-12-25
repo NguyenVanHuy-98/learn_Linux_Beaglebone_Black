@@ -1,0 +1,14 @@
+[Unit]
+Description=Bring up can0 at boot
+DefaultDependencies=no
+After=systemd-modules-load.service
+Before=network-pre.target
+Wants=network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/can-up.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

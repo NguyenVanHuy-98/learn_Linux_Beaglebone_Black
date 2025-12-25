@@ -1,0 +1,299 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * Copyright (C) 2012 Texas Instruments Incorporated - https://www.ti.com/
+ */
+/dts-v1/;
+
+#include "am33xx.dtsi"
+#include "am335x-bone-common.dtsi"
+#include "am335x-boneblack-common.dtsi"
+#include "am335x-boneblack-hdmi.dtsi"
+//#include "am33xx-l4.dtsi"
+#include <dt-bindings/input/input.h>
+
+
+/ {
+	model = "TI AM335x BeagleBone Black";
+	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+
+	buttons_led {
+
+		compatible = "gpio-keys";
+
+		button1 {
+			label = "RESET";
+			linux,code = <KEY_1>;
+			gpios = <&gpio1 14 GPIO_ACTIVE_LOW>; /* P8_16 */
+			debounce-interval = <10>;
+		};
+
+		button2 {
+			label = "RESET";
+			linux,code = <KEY_2>;
+			gpios = <&gpio2 1 GPIO_ACTIVE_LOW>; /* P8_18 */
+			debounce-interval = <10>;
+		};
+	};
+
+	leds_on {
+		compatible = "led_on1";
+		gpio_led1 = <&gpio1 12 GPIO_ACTIVE_HIGH>; /* P8_12 */
+		gpio_led2 = <&gpio0 26 GPIO_ACTIVE_HIGH>; /* P8_14 */
+	};
+
+	
+};
+
+&cpu0_opp_table {
+	/*
+	 * All PG 2.0 silicon may not support 1GHz but some of the early
+	 * BeagleBone Blacks have PG 2.0 silicon which is guaranteed
+	 * to support 1GHz OPP so enable it for PG 2.0 on this board.
+	 */
+	oppnitro-1000000000 {
+		opp-supported-hw = <0x06 0x0100>;
+	};
+};
+
+
+
+
+&gpio0 {
+	gpio-line-names =
+		"[mdio_data]",
+		"[mdio_clk]",
+		"P9_22 [spi0_sclk]",
+		"P9_21 [spi0_d0]",
+		"P9_18 [spi0_d1]",
+		"P9_17 [spi0_cs0]",
+		"[mmc0_cd]",
+		"P8_42A [ecappwm0]",
+		"P8_35 [lcd d12]",
+		"P8_33 [lcd d13]",
+		"P8_31 [lcd d14]",
+		"P8_32 [lcd d15]",
+		"P9_20 [i2c2_sda]",
+		"P9_19 [i2c2_scl]",
+		"P9_26 [uart1_rxd]",
+		"P9_24 [uart1_txd]",
+		"[rmii1_txd3]",
+		"[rmii1_txd2]",
+		"[usb0_drvvbus]",
+		"[hdmi cec]",
+		"P9_41B",
+		"[rmii1_txd1]",
+		"P8_19 [ehrpwm2a]",
+		"P8_13 [ehrpwm2b]",
+		"NC",
+		"NC",
+		"P8_14",
+		"P8_17",
+		"[rmii1_txd0]",
+		"[rmii1_refclk]",
+		"P9_11 [uart4_rxd]",
+		"P9_13 [uart4_txd]";
+};
+
+&gpio1 {
+	gpio-line-names =
+		"P8_25 [mmc1_dat0]",
+		"[mmc1_dat1]",
+		"P8_5 [mmc1_dat2]",
+		"P8_6 [mmc1_dat3]",
+		"P8_23 [mmc1_dat4]",
+		"P8_22 [mmc1_dat5]",
+		"P8_3 [mmc1_dat6]",
+		"P8_4 [mmc1_dat7]",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"P8_12",
+		"P8_11",
+		"P8_16",
+		"P8_15",
+		"P9_15A",
+		"P9_23",
+		"P9_14 [ehrpwm1a]",
+		"P9_16 [ehrpwm1b]",
+		"[emmc rst]",
+		"[usr0 led]",
+		"[usr1 led]",
+		"[usr2 led]",
+		"[usr3 led]",
+		"[hdmi irq]",
+		"[usb vbus oc]",
+		"[hdmi audio]",
+		"P9_12",
+		"P8_26",
+		"P8_21 [emmc]",
+		"P8_20 [emmc]";
+};
+
+&gpio2 {
+	gpio-line-names =
+		"P9_15B",
+		"P8_18",
+		"P8_7",
+		"P8_8",
+		"P8_10",
+		"P8_9",
+		"P8_45 [hdmi]",
+		"P8_46 [hdmi]",
+		"P8_43 [hdmi]",
+		"P8_44 [hdmi]",
+		"P8_41 [hdmi]",
+		"P8_42 [hdmi]",
+		"P8_39 [hdmi]",
+		"P8_40 [hdmi]",
+		"P8_37 [hdmi]",
+		"P8_38 [hdmi]",
+		"P8_36 [hdmi]",
+		"P8_34 [hdmi]",
+		"[rmii1_rxd3]",
+		"[rmii1_rxd2]",
+		"[rmii1_rxd1]",
+		"[rmii1_rxd0]",
+		"P8_27 [hdmi]",
+		"P8_29 [hdmi]",
+		"P8_28 [hdmi]",
+		"P8_30 [hdmi]",
+		"[mmc0_dat3]",
+		"[mmc0_dat2]",
+		"[mmc0_dat1]",
+		"[mmc0_dat0]",
+		"[mmc0_clk]",
+		"[mmc0_cmd]";
+};
+
+&gpio3 {
+	gpio-line-names =
+		"[mii col]",
+		"[mii crs]",
+		"[mii rx err]",
+		"[mii tx en]",
+		"[mii rx dv]",
+		"[i2c0 sda]",
+		"[i2c0 scl]",
+		"[jtag emu0]",
+		"[jtag emu1]",
+		"[mii tx clk]",
+		"[mii rx clk]",
+		"NC",
+		"NC",
+		"[usb vbus en]",
+		"P9_31 [spi1_sclk]",
+		"P9_29 [spi1_d0]",
+		"P9_30 [spi1_d1]",
+		"P9_28 [spi1_cs0]",
+		"P9_42B [ecappwm0]",
+		"P9_27",
+		"P9_41A",
+		"P9_25",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC",
+		"NC";
+};
+
+&baseboard_eeprom {
+	vcc-supply = <&ldo4_reg>;
+};
+
+&am33xx_pinmux {
+	
+    bbb_spi0_pins: pinmux_bbb_spi0_pins {
+        pinctrl-single,pins = <
+            /* SPI0 */
+            AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT_PULLUP, MUX_MODE0)   /* P9_22 (SCL/SCK) */
+            AM33XX_PADCONF(AM335X_PIN_SPI0_D0,   PIN_INPUT_PULLUP, MUX_MODE0)   /* P9_21 (MISO) */
+            AM33XX_PADCONF(AM335X_PIN_SPI0_D1,   PIN_INPUT_PULLUP, MUX_MODE0)   /* P9_18 (MOSI/SDA) */
+            AM33XX_PADCONF(AM335X_PIN_SPI0_CS0,  PIN_INPUT_PULLUP, MUX_MODE0)   /* P9_17 (CS0) */
+
+            /* GPIO control pins */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_BEN1, PIN_OUTPUT, MUX_MODE7)         /* DC: P9_12 (GPIO1_28) */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_A1,   PIN_OUTPUT, MUX_MODE7)         /* RST: P9_23 (GPIO1_17) */
+
+
+        >;
+    };
+
+	    bbb_can1_pins: pinmux_bbb_can1_pins {
+        pinctrl-single,pins = <
+			/* GPIO can */
+            AM33XX_PADCONF(AM335X_PIN_UART1_TXD, PIN_INPUT, MUX_MODE2)         /* P9_24 CAN 1 RX*/
+            AM33XX_PADCONF(AM335X_PIN_UART1_RXD,   PIN_OUTPUT, MUX_MODE2)      /* P9_26 CAN 1 TX */
+        >;
+    };
+
+	 pru0_enc_pwm_pins: pinmux_pru0_enc_pwm_pins {
+        pinctrl-single,pins = <
+
+            /* Encoder 0: A/B (input) */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_AD12, PIN_INPUT, MUX_MODE6)   /* P8_12 -> pr1_pru0_pru_r31_12 */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_AD13, PIN_INPUT, MUX_MODE6)   /* P8_11 -> pr1_pru0_pru_r31_13 */
+
+            /* Encoder 1: A/B (input) */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_AD14, PIN_INPUT, MUX_MODE6)   /* P8_16 -> pr1_pru0_pru_r31_14 */
+            AM33XX_PADCONF(AM335X_PIN_GPMC_AD15, PIN_INPUT, MUX_MODE6)   /* P8_15 -> pr1_pru0_pru_r31_15 */
+			/* plush pwm */
+            AM33XX_PADCONF(AM335X_PIN_LCD_VSYNC, PIN_OUTPUT, MUX_MODE5)  /* P9_27 -> pr1_pru0_pru_r30_0 */
+        >;
+    };
+
+
+};
+
+&dcan1{
+	status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&bbb_can1_pins>;
+
+};
+
+&spi0 {
+    status = "okay";
+    pinctrl-names = "default";
+    pinctrl-0 = <&bbb_spi0_pins>;
+
+    st7789v@0 {
+        reg = <0>;
+        compatible = "sitronix,st7789v";
+        width = <240>;
+        height = <240>;
+		buswidth = <8>;
+
+        dc-gpios = <&gpio1 28 GPIO_ACTIVE_HIGH>;   /* DC pin: P9_12 */
+        reset-gpios = <&gpio1 17 GPIO_ACTIVE_LOW>; /* RST pin: P9_23 */
+    };
+};
+
+&pruss_tm {
+    status = "okay";
+};
+
+&pruss {
+    status = "okay";
+};
+
+&pru0 {
+    status = "okay";
+    firmware-name = "am335x-pru0-fw";   
+
+};
+
+&pru1 {
+    status = "disabled";
+
+};
+
+
+&lcdc {
+    status = "disabled";
+};
