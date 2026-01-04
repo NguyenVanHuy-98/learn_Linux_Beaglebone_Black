@@ -1,0 +1,1 @@
+cmd_/home/huy/work_space/02_create_device_tree/hello-kernel.mod := printf '%s\n'   hello-kernel.o | awk '!x[$$0]++ { print("/home/huy/work_space/02_create_device_tree/"$$0) }' > /home/huy/work_space/02_create_device_tree/hello-kernel.mod

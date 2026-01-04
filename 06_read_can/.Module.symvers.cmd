@@ -1,0 +1,1 @@
+cmd_/home/huy/work_space/06_read_can/Module.symvers :=  sed 's/ko$$/o/'  /home/huy/work_space/06_read_can/modules.order | scripts/mod/modpost       -o /home/huy/work_space/06_read_can/Module.symvers -e -i Module.symvers -T - 

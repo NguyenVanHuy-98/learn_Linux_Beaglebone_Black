@@ -1,0 +1,1 @@
+cmd_/home/huy/work_space/04_character_device/on_led.mod := printf '%s\n'   on_led.o | awk '!x[$$0]++ { print("/home/huy/work_space/04_character_device/"$$0) }' > /home/huy/work_space/04_character_device/on_led.mod
