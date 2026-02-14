@@ -130,7 +130,7 @@ static long on_led_unlocked_ioctl(struct file *fp,
         pr_info("IOCTL: LED1_ON\n");
         return 0;
 
-    case LED1_IOC_OFF:
+    case LED1_IOC_OFF:                                                 
         led1_off();             /* Tắt LED 1 */
         pr_info("IOCTL: LED1_OFF\n");
         return 0;
